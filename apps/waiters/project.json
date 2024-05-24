@@ -1,26 +1,26 @@
 {
-  "name": "delishus",
+  "name": "waiters",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/delishus/src",
+  "sourceRoot": "apps/waiters/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/delishus",
-        "index": "apps/delishus/src/index.html",
-        "browser": "apps/delishus/src/main.ts",
+        "outputPath": "dist/apps/waiters",
+        "index": "apps/waiters/src/index.html",
+        "main": "apps/waiters/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/delishus/tsconfig.app.json",
+        "tsConfig": "apps/waiters/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/delishus/src/favicon.ico", "apps/delishus/src/assets"],
-        "styles": ["apps/delishus/src/styles.scss"],
+        "assets": ["apps/waiters/src/favicon.ico", "apps/waiters/src/assets"],
+        "styles": ["apps/waiters/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/delishus/webpack.config.ts"
+          "path": "apps/waiters/webpack.config.ts"
         }
       },
       "configurations": {
@@ -39,36 +39,40 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/delishus/webpack.prod.config.ts"
+            "path": "apps/waiters/webpack.prod.config.ts"
           }
         },
         "development": {
+          "buildOptimizer": false,
           "optimization": false,
+          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "namedChunks": true
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:module-federation-dev-server",
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      },
       "configurations": {
         "production": {
-          "buildTarget": "delishus:build:production"
+          "buildTarget": "waiters:build:production"
         },
         "development": {
-          "buildTarget": "delishus:build:development"
+          "buildTarget": "waiters:build:development"
         }
       },
-      "defaultConfiguration": "development",
-      "options": {
-        "publicHost": "http://localhost:4200"
-      }
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "delishus:build"
+        "buildTarget": "waiters:build"
       }
     },
     "lint": {
@@ -78,7 +82,24 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/delishus/jest.config.ts"
+        "jestConfig": "apps/waiters/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "waiters:build",
+        "port": 4202,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "waiters:build:development"
+        },
+        "production": {
+          "buildTarget": "waiters:build:production"
+        }
       }
     }
   }

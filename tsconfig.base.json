@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "profile-profile/Routes": [
+        "apps/profile/profile/src/app/remote-entry/entry.routes.ts"
+      ],
+      "profile/Routes": ["profile/src/app/remote-entry/entry.routes.ts"],
+      "waiters/Routes": ["apps/waiters/src/app/remote-entry/entry.routes.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
