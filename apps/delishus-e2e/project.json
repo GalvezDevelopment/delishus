@@ -1,0 +1,9 @@
+{
+  "name": "delishus-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/delishus-e2e/src",
+  "implicitDependencies": ["delishus"],
+  "// targets": "to see all targets run: nx show project delishus-e2e --web",
+  "targets": {}
+}
