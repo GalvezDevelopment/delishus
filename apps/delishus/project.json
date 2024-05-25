@@ -12,7 +12,7 @@
       "options": {
         "outputPath": "dist/apps/delishus",
         "index": "apps/delishus/src/index.html",
-        "browser": "apps/delishus/src/main.ts",
+        "main": "apps/delishus/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/delishus/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
