@@ -1,26 +1,26 @@
 {
-  "name": "delishus",
+  "name": "profile",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/delishus/src",
+  "sourceRoot": "apps/profile/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/delishus",
-        "index": "apps/delishus/src/index.html",
-        "main": "apps/delishus/src/main.ts",
+        "outputPath": "dist/apps/profile",
+        "index": "apps/profile/src/index.html",
+        "main": "apps/profile/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/delishus/tsconfig.app.json",
+        "tsConfig": "apps/profile/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/delishus/src/favicon.ico", "apps/delishus/src/assets"],
-        "styles": ["apps/delishus/src/styles.scss"],
+        "assets": ["apps/profile/src/favicon.ico", "apps/profile/src/assets"],
+        "styles": ["apps/profile/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/delishus/webpack.config.ts"
+          "path": "apps/profile/webpack.config.ts"
         }
       },
       "configurations": {
@@ -39,36 +39,40 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/delishus/webpack.prod.config.ts"
+            "path": "apps/profile/webpack.prod.config.ts"
           }
         },
         "development": {
+          "buildOptimizer": false,
           "optimization": false,
+          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "namedChunks": true
         }
       },
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@nx/angular:module-federation-dev-server",
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      },
       "configurations": {
         "production": {
-          "buildTarget": "delishus:build:production"
+          "buildTarget": "profile:build:production"
         },
         "development": {
-          "buildTarget": "delishus:build:development"
+          "buildTarget": "profile:build:development"
         }
       },
-      "defaultConfiguration": "development",
-      "options": {
-        "publicHost": "http://localhost:4200"
-      }
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "delishus:build"
+        "buildTarget": "profile:build"
       }
     },
     "lint": {
@@ -78,7 +82,24 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/delishus/jest.config.ts"
+        "jestConfig": "apps/profile/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "profile:build",
+        "port": 4201,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "profile:build:development"
+        },
+        "production": {
+          "buildTarget": "profile:build:production"
+        }
       }
     }
   }
