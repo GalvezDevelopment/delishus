@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  height: var(--del-header-height);
+
+  .header {
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+      font-size: var(--del-header-title-font-size);
+      font-weight: var(--del-header-title-font-weight);
+    }
+
+    &__menu {
+      display: flex;
+
+      &--left {
+        margin-right: 3.5rem;
+      }
+
+      ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    &__btn-notifications {
+      margin-right: 0.5rem;
+    }
+  }
+}
