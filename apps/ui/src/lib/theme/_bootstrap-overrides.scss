@@ -1,0 +1,28 @@
+.btn {
+  --bs-btn-font-family: 'Poppins';
+  --bs-btn-border-radius: var(--del-button-radius);
+
+  &-primary {
+    --bs-btn-bg: var(--del-primary);
+    --bs-btn-border-color: var(--del-primary);
+    --bs-btn-hover-bg: var(--del-primary-hover);
+    --bs-btn-hover-border-color: var(--del-primary-hover);
+  }
+
+  &-link {
+    --bs-btn-color: var(--del-primary);
+    --bs-btn-hover-color: var(--del-primary-hover);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // New added!
+  &-round:not(.btn-sm) {
+    --bs-btn-padding-x: 0.75rem;
+    --bs-btn-padding-y: 0.5rem;
+    --del-button-radius: 2rem;
+  }
+}
