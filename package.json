@@ -35,6 +35,7 @@
     "@angular/cli": "~17.3.0",
     "@angular/compiler-cli": "~17.3.0",
     "@angular/language-service": "~17.3.0",
+    "@ngrx/store-devtools": "^17.2.0",
     "@nx/cypress": "19.0.7",
     "@nx/devkit": "19.0.7",
     "@nx/eslint": "19.0.7",

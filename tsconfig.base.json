@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@galvezdev/domain": ["apps/domain/src/index.ts"],
+      "@galvezdev/shared": ["apps/shared/src/index.ts"],
       "@galvezdev/ui": ["apps/ui/src/index.ts"],
       "profile/Routes": ["apps/profile/src/app/remote-entry/entry.routes.ts"],
       "waiters/Routes": ["apps/waiters/src/app/remote-entry/entry.routes.ts"]

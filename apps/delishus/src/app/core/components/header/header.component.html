@@ -2,17 +2,12 @@
   <span class="header__title">Delishus</span>
   <section class="header__menu align-items-center">
     <section class="header__menu--left">
-      <ul>
-        <li>
-          <button type="button" class="btn btn-link">Dashboard</button>
-        </li>
-        <li>
-          <button type="button" class="btn btn-link">Waiters</button>
-        </li>
-        <li>
-          <button type="button" class="btn btn-link">Tables</button>
-        </li>
-      </ul>
+      @if (isAboveSmallBreakpoint$ | async) {
+      <!-- REFERENCING THE TEMPLATE -->
+      <ng-container
+        *ngTemplateOutlet="navlinks; context: { $implicit: false }"
+      ></ng-container>
+      }
     </section>
     <section class="header__menu--right">
       <ul>
@@ -21,13 +16,63 @@
             <i class="bi bi-bell"></i>
           </button>
         </li>
+        @if (isUntilSmall$ | async) {
+        <li class="dopdown">
+          <button
+            type="button"
+            class="btn btn-link"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+          <!-- REFERENCING THE TEMPLATE -->
+          <ng-container
+            *ngTemplateOutlet="navlinks; context: { $implicit: true }"
+          ></ng-container>
+        </li>
+        } @else {
         <li>
           <button
             type="button"
             class="btn btn-primary bi bi-person-fill btn-round"
           ></button>
         </li>
+        }
       </ul>
     </section>
   </section>
 </header>
+
+<!-- REUSABLE TEMPLATE FOR NAV LINKS -->
+<ng-template #navlinks let-additionalClass>
+  <ul [ngClass]="{ 'dropdown-menu': additionalClass }">
+    <li>
+      <button
+        type="button"
+        class="btn btn-link"
+        [ngClass]="{ 'dropdown-item': additionalClass }"
+      >
+        Dashboard
+      </button>
+    </li>
+    <li>
+      <button
+        type="button"
+        class="btn btn-link"
+        [ngClass]="{ 'dropdown-item': additionalClass }"
+      >
+        Waiters
+      </button>
+    </li>
+    <li>
+      <button
+        type="button"
+        class="btn btn-link"
+        [ngClass]="{ 'dropdown-item': additionalClass }"
+      >
+        Tables
+      </button>
+    </li>
+  </ul>
+</ng-template>
