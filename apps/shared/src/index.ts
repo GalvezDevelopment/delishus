@@ -1,5 +1,5 @@
 // INTERFACES
-export * from './lib/models/store.interface';
+export * from './lib/interfaces/store.interface';
 
 // SERVICES
 export * from './lib/services/breakpoint/breakpoint.service';

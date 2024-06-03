@@ -2,11 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   DelishusStore,
-  selectBreakpoint,
   selectIsAboveSmallBreakpoint,
-  selectIsSmallBreakpoint,
-  selectIsUntilSmallBreakpoint,
-  selectIsXSmallBreakpoint,
+  selectIsUntilSmallBreakpoint
 } from '@galvezdev/shared';
 import { DelishusUiModule } from '@galvezdev/ui';
 import { Store } from '@ngrx/store';

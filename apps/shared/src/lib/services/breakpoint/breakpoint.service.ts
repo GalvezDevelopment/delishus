@@ -2,8 +2,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
-import { DelishusStore } from '../../models/store.interface';
 import { setBreakpoint } from './breakpoint.actions';
+import { DelishusStore } from '../../interfaces/store.interface';
 
 export class DelishusBreakpoint {
   static X_SMALL = '(max-width: 575px)';
