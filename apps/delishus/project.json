@@ -18,7 +18,7 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/delishus/src/favicon.ico", "apps/delishus/src/assets"],
         "styles": ["apps/delishus/src/styles.scss"],
-        "scripts": [],
+        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"],
         "customWebpackConfig": {
           "path": "apps/delishus/webpack.config.ts"
         }

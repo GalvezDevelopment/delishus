@@ -11,6 +11,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: '',
-    loadChildren: () => import('waiters/Routes').then((m) => m.remoteRoutes),
+    redirectTo: 'waiters',
+    pathMatch: 'full',
   },
 ];

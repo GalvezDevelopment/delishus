@@ -19,7 +19,7 @@
         margin-right: 3.5rem;
       }
 
-      ul {
+      ul:not(ul ul) {
         display: flex;
         list-style: none;
         padding: 0;
