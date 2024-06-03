@@ -1,4 +1,4 @@
-import { DelishusBreakpoint, DelishusStore } from '@galvezdev/shared';
+import { DelishusBreakpoint, DelishusStore } from '../../../index';
 import { createSelector } from '@ngrx/store';
 
 const feature = (state: DelishusStore) => state.breakpoint;
