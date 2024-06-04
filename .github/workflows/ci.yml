@@ -1,7 +1,7 @@
 name: CI
 
 env:
- NX_NO_CLOUD: true
+  NX_NO_CLOUD: true
 
 on:
   push:
